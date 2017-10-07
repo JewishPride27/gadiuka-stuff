@@ -24,7 +24,7 @@ def adjList (graph=[]):
                 saved.append(edge[i])
             elif edge[i] in saved:
                 temp[edge[i]].append(edge[(i + 1) % 2])
-
+    del saved
     return temp
 
 def adjMatrix(graph = []):
@@ -46,24 +46,25 @@ def incMatrix(graph = []):
         m[int(graph[i][1]) - 1][i] = 1
     return m
 
+def main():
+    graph = []
+    with open('input.txt') as inp:
+        for line in inp:
+            e = inp.readline().split()
+            graph.append(e)
+
+    print(graph)
+    print(countVertices(graph))
+    print('')
+    print(adjList(graph))
+    print('')
+    for elem in adjMatrix(graph):
+        print(elem)
+    print('')
+    for elem in incMatrix(graph):
+        print(elem)
+
+if __name__ =="__main__": main()
 
 
 
-
-
-graph = []
-with open ('input.txt') as inp:
- for line in inp:
-     e = inp.readline().split()
-     graph.append(e)
-
-print (graph)
-print (countVertices(graph))
-print('')
-print(adjList(graph))
-print('')
-for elem in adjMatrix(graph):
-    print(elem)
-print('')
-for elem in incMatrix(graph):
-    print (elem)
