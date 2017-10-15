@@ -1,12 +1,4 @@
 
-def incList():
-    graph = []
-    with open('input.txt') as inp:
-        for line in inp:
-            e = inp.readline().split()
-            graph.append(e)
-    return graph
-
 def countVertices(graph = []):
     saved = []
     c = 0
@@ -26,11 +18,11 @@ def adjList (graph=[]):
     for edge in graph:
         for i in range (2):
             if edge[i] not in temp:
-                temp[edge[i]] = []
-                temp[edge[i]].append(edge[(i+1)%2])
+                temp[edge[i]] = set()
+                temp[edge[i]].add(edge[(i + 1)%2])
                 saved.append(edge[i])
             elif edge[i] in saved:
-                temp[edge[i]].append(edge[(i + 1) % 2])
+                temp[edge[i]].add(edge[(i + 1) % 2])
     del saved
     return temp
 
@@ -53,11 +45,15 @@ def incMatrix(graph = []):
         m[int(graph[i][1]) - 1][i] = 1
     return m
 
-
 def main():
-    graph = incList()
+    graph = []
+    with open('input.txt') as inp:
+        for line in inp:
+            e = inp.readline().split()
+            graph.append(e)
 
     print(graph)
+    print(' ')
     print(countVertices(graph))
     print('')
     print(adjList(graph))
@@ -69,6 +65,3 @@ def main():
         print(elem)
 
 if __name__ =="__main__": main()
-
-
-
