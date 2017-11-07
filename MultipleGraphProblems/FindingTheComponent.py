@@ -1,5 +1,3 @@
-import GraphRepresentations as GR
-import BFSandDFS as BD
 
 def components(graph, anynode):
     component = {1:set(BD.DFS(graph, anynode))}

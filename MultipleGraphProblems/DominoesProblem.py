@@ -4,9 +4,7 @@ from BFSandDFS import DFS
 
 def degrees(graph):
     deg = []
-    n = 0
     for vertex in graph:
-        n+=1
         deg.append((len(graph[vertex])) % 2)
     return deg
 

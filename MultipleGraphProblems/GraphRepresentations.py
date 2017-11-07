@@ -53,7 +53,7 @@ def main():
             graph.append(e)
 
     print(graph)
-    print(' ')
+    print('')
     print(countVertices(graph))
     print('')
     print(adjList(graph))
